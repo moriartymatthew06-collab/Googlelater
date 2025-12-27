@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NETWORK TERMINAL</title>
+<style>
+    body {
+        background: black;
+        color: #00ff00;
+        font-family: monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .terminal {
+        border: 2px solid #00ff00;
+        padding: 20px;
+        width: 500px;
+    }
+
+    input {
+        width: 100%;
+        background: black;
+        color: #00ff00;
+        border: 1px solid #00ff00;
+        padding: 10px;
+        margin-top: 10px;
+        font-family: monospace;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 15px;
+        padding: 10px;
+        background: black;
+        color: #00ff00;
+        border: 1px solid #00ff00;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #00ff00;
+        color: black;
+    }
+
+    .output {
+        margin-top: 15px;
+        display: none;
+        white-space: pre-line;
+        border-top: 1px solid #00ff00;
+        padding-top: 10px;
+    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Googlelater</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      background: white;
+    }
+
+    .logo {
+      font-size: 72px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .search-box {
+      width: 500px;
+      max-width: 90%;
+      padding: 14px 20px;
+      font-size: 16px;
+      border-radius: 24px;
+      border: 1px solid #dfe1e5;
+      outline: none;
+    }
+
+    .buttons {
+      margin-top: 25px;
+    }
+
+    button {
+      padding: 10px 16px;
+      margin: 0 5px;
+      border: 1px solid #dadce0;
+      background: #f8f9fa;
+      cursor: pointer;
+    }
+
+    iframe {
+      width: 90%;
+      height: 60vh;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">Googlelater</div>
+
+  <input
+    id="q"
+    class="search-box"
+    type="text"
+    placeholder="Search Googlelater"
+    onkeydown="if(event.key==='Enter') search()"
+  />
+
+  <div class="buttons">
+    <button onclick="search()">Googlelater Search</button>
+    <button onclick="alert('Feeling Later 😄')">I'm Feeling Later</button>
+  </div>
+
+  <iframe id="results" style="display:none;"></iframe>
+
+  <script>
+    function search() {
+      const q = document.getElementById("q").value;
+      if (!q) return;
+
+      // Show results iframe
+      const iframe = document.getElementById("results");
+      iframe.style.display = "block";
+
+      // Use DuckDuckGo search inside iframe
+      iframe.src = "https://duckduckgo.com/?q=" + encodeURIComponent(q);
+    }
+  </script>
+</body>
+</html>
